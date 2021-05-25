@@ -1,0 +1,33 @@
+body {
+  background:url(../background.png);
+}
+
+.body1 {
+  /* background-color: green; */
+  max-width: 500px;
+  margin: auto;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+
+}
+#url {
+  width: 500px;
+}
+.description {
+  padding-left: 30px;
+}
+
+#language {
+  width: 510px;
+}
+
+.body2 {
+  position: absolute;
+  top: 200px;
+  right: 50px;
+  /* border: 3px solid blue; */
+  width: 500px;
+}
