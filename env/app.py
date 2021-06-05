@@ -8,6 +8,9 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET","POST"])
 def index():
+
+    # dictionary that contains all the possible error messages that could appear
+    # defaults to "random" error if unexpected error occurs.
     errors = {"invalid": "Wikipedia link is invalid. Please try again.",
                 "empty": "Wikipedia link was not entered.",
                 "general": "Wikipedia link led to search result. Please enter a link to a specified article.",
