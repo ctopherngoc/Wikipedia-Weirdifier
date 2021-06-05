@@ -16,11 +16,11 @@
   <div class="description">
 
 
-  <p>
+  <p class="info" id="info">
     Takes the text of the provided Wikipedia page and returns the weirdified version of the text.
-    Replaces letters with ones with special marks and displays below.
+    Replaces letters with ones with special marks and displays below. The original text will be displayed
+    on the left while the transformed text is displayed on the right.
   </p>
-  <br>
 
   <p class="error" name="error" id="error">
     {{ error }}
@@ -31,9 +31,6 @@
 
     <input type="submit" value="Submit">
   </form>
-  <p name="translate" id="translate">
-    {{ translate }}
-  </p>
   </div>
   </div>
 

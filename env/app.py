@@ -7,10 +7,8 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=["GET","POST"])
-def index():
 
-    # dictionary that contains all the possible error messages that could appear
-    # defaults to "random" error if unexpected error occurs.
+def index():
     errors = {"invalid": "Wikipedia link is invalid. Please try again.",
                 "empty": "Wikipedia link was not entered.",
                 "general": "Wikipedia link led to search result. Please enter a link to a specified article.",
@@ -35,40 +33,20 @@ def index():
             elif "wikipedia.org/wiki/" not in post["url"]:
                 return render_template('index.html', error=errors["invalid"])
 
-            # # if general link
-            # else:
-            #     print("123456")
-            #     uClient = uReq(post["url"])
-            #     page_html = uClient.read()
-            #     uClient.close()
-            #     page_soup = soup(page_html, "html.parser")
-            #
-            #     # scrape following html tags
-            #     page_body = page_soup.body.findAll(['b'])
-            #     print(page_body)
-            #
-            #     for x in page_body:
-            #         if x == "Wikipedia does not have an article with this exact name.":
-            #             return render_template('index.html', error=errors["general"])
-
             # working correct link
             # scrapes wiki link
             r = requests.post('https://wikiscraperproject.herokuapp.com/', data=post)
 
-            # text test
-            # print(type(r))
-            # Tempdata = r.text
-            # print(type(Tempdata))
-            # print(Tempdata)
+            Tempdata = r.text
 
+            if "<!DOCTYPE html>" in Tempdata:
+                return render_template("index.html", error=errors["random"])
 
             # weirdify scraped text
             r1 = requests.get('https://weirdifier.herokuapp.com/', data=Tempdata.encode('utf-8'))
-            # print(r1)
-            # print(r1.text)
 
             # display transformed wikipedia text
-            return render_template('index.html', translate=r1.text, error="Success!")
+            return render_template('post.html', translate=r1.text, error="Success!", before=r.text)
 
         except:
             print("error")

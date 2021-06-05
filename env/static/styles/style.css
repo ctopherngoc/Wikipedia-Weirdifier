@@ -1,15 +1,20 @@
 body {
-  background:url(../background.png);
+  /* background:url(../background.png); */
+  background-color: #808080;
 }
 
 .body1 {
-  /* background-color: green; */
   max-width: 500px;
   margin: auto;
 }
 
 .error {
   color: red;
+  font-weight: bold;
+
+}
+.good {
+  color: green;
   font-weight: bold;
 
 }
@@ -25,9 +30,35 @@ body {
 }
 
 .body2 {
+  background-color: white;
   position: absolute;
   top: 200px;
   right: 50px;
-  /* border: 3px solid blue; */
   width: 500px;
+  margin: 5px, 10px;
+}
+
+.split {
+  background-color: white;
+  width: 45%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 3%;
+}
+
+/* Control the right side */
+.right {
+  left: 50%;
+}
+
+.info {
+  background-color: white;
+  margin: 5px, 10px;
 }
