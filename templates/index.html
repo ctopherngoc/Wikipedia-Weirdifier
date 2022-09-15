@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+  <title> Wikipedia Translator</title>
+</head>
+
+<body>
+  <div class="body1">
+  <img src="{{url_for('static', filename='logo.png')}}" alt="Logo" width="600" height="200">
+  <div class="description">
+
+
+  <p class="info" id="info">
+    Takes the text of the provided Wikipedia page and returns the weirdified version of the text.
+    Replaces letters with ones with special marks and displays below. The original text will be displayed
+    on the left while the transformed text is displayed on the right.
+  </p>
+
+  <p class="error" name="error" id="error">
+    {{ error }}
+  </p>
+  <form action="/" method="POST">
+    <label for="url">Wikipedia URL:</label><br>
+    <input type="text" id="url" name="url" onsubmit ="return false"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+  </div>
+  </div>
+
+  <div class="body2" id="body2">
+  <h1 class=" help" id="help">Instructions:</h1>
+  <ol>
+    <li>
+      Insert the link for the Wikipedia page to be translated in the labeled field.
+      If left empty  or an invalid page is entered, an error will appear when submitting.
+    </li><br>
+
+    <li>
+      Click submit button. The translated text should appear below the submit button. If the link is empty or
+      link is invalid, and error message should appear.
+    </li><br>
+  </ol>
+    </div>
+</body>
+
+</html>
